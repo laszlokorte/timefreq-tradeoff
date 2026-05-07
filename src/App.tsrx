@@ -148,10 +148,19 @@ export component App() {
         </svg>
       </div>
   </div>
+  <footer><a target="_blank" href="//tools.laszlokorte.de">"more educational tools"</a></footer>
 </main>
 
 
 	<style>
+	footer {
+	display: block;
+	text-align: center;
+	margin-top: 2em;
+	}
+	a {
+	color: deepskyblue;
+	}
  :root {
                 font-family: monospace;
                 color-scheme: light dark;
