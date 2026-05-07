@@ -1,7 +1,7 @@
 {
-	"name": "riple-test",
+	"name": "time-frequency-tradeoff",
 	"version": "1.0.0",
-	"description": "A Ripple application created with create-ripple",
+	"description": "Visualization of Time/Frequency space",
 	"type": "module",
 	"engines": {
 		"node": ">=22.0.0"
