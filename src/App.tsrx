@@ -1,5 +1,5 @@
 import { track } from 'ripple';
-import favicon from './assets/favicon.svg'
+import favicon from '/favicon.svg'
 
 function makeColor(x : number, y : number) : string {
   return  `rgb(${255-255*x},${255*y},${255/2})`
