@@ -43,7 +43,7 @@ export component App() {
 
 	<head>
 
-	<title>"foo"</title>
+	<title>"Time/Frequency Trade-off"</title>
 	<link rel="icon" href={favicon} / >
 	</head>
 
@@ -53,20 +53,23 @@ export component App() {
       <div class="plot-titel">
 
         <h1>"Time/Frequency Trade-off"</h1>
-        <div class="slider">
+        <div class="bar">
 
     		<label>
         <input checked={w} oninput={(evt : InputEvent) => w = (evt.currentTarget  as HTMLInputElement)?.checked ?? false} type="checkbox" /> " Mix"
         </label>
+        <span class={{hidden:w}}> " &middot; "</span>
+        <div class="slider">
     		<label class={{hidden:w, "range-label": true}}>
-        " &middot; "
-    		"Trade-off:"
+
+    		<span class="label">"Trade-off:"</span>
         <input disabled={w} value={r} oninput={(evt : InputEvent) => r = (evt.currentTarget  as HTMLInputElement)?.valueAsNumber ?? 0} type="range" min={0} max={sizelog} />
    			</label>
    			<output>
         {text r*size}"-"{text (r+1)*size}" / "{text rects.length}
       </output>
 
+      </div>
       <span  class={{hidden:w}}>
    			" &middot; "
       </span>
@@ -156,9 +159,26 @@ export component App() {
 			svg {
 				display: block;
 				border: 2px solid #aaa;
+				width: 100%;
+				max-width: 100%;
+				height: auto;
 			}
+			.label {
+			white-space: nowrap;
+			}
+			.bar {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1ex;
+				padding: 1ex;
+				accent-color: deeppink;
+			}
+
 			.slider {
 				display: flex;
+				flex-grow: 1;
 				align-items: center;
 				gap: 1ex;
 				padding: 1ex;
@@ -181,7 +201,6 @@ export component App() {
 			}
 
 			main {
-				width: max-content;
 				margin: auto;
 				padding-bottom: 2em;
 			}
@@ -238,9 +257,12 @@ export component App() {
 			}
 
     .plot {
+      width: 100%;
       display: grid;
       gap: 1ex;
-      grid-template-columns: [axis-y-start] auto [axis-y-end body-start axis-x-start titel-start] 1fr [titel-end axis-x-end body-end];
+      max-width: 90ch;
+      margin: auto;
+      grid-template-columns: [axis-y-start] auto [axis-y-end body-start axis-x-start titel-start] 1fr [titel-end axis-x-end body-end] 4em;
       grid-template-rows:[titel-start] auto [titel-end body-start axis-y-start] 1fr [body-end axis-y-end axis-x-start] auto [axis-x-end];
     }
     .plot-titel {
